@@ -1,0 +1,1 @@
+# Automated-CI-CD-Pipeline-for-a-Static-Website-Using-GitHub-Actions-and-AWS-S3
