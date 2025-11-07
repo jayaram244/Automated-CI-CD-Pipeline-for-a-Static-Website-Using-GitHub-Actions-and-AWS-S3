@@ -29,7 +29,7 @@ Using CloudFront with an S3 bucket improves website performance, reduces load on
 - A **static website** with HTML, CSS, and JavaScript files.
 - A **GitHub Actions workflow** to automate build and deploy on every push to `main`.
 - Deployment to a **versioned AWS S3 bucket** serving the website.
-- Optional **CloudFront cache invalidation** to ensure users get the latest content immediately.
+- **CloudFront cache invalidation** to ensure users get the latest content immediately.
 
 ---
 
@@ -40,7 +40,7 @@ Using CloudFront with an S3 bucket improves website performance, reduces load on
 3. It checks out the code, configures AWS credentials from your repository secrets.
 4. Synchronizes the website files with your S3 bucket, skipping workflow and README files.
 5. Optionally invalidates CloudFront cache if you use CloudFront CDN.
-6. Once complete, your static website updates live on the S3 endpoint or CloudFront distribution.
+6. Once complete, your static website updates live on the  CloudFront distribution.
 
 ---
 
@@ -48,9 +48,9 @@ Using CloudFront with an S3 bucket improves website performance, reduces load on
 
 - AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`) stored as encrypted GitHub secrets.
 - Your S3 bucket name as `AWS_S3_BUCKET_NAME`.
-- (Optional) CloudFront distribution ID as `CLOUDFRONT_DISTRIBUTION_ID`.
+- CloudFront distribution ID as `CLOUDFRONT_DISTRIBUTION_ID`.
 - Correctly configured S3 bucket for static website hosting and versioning enabled.
-- CloudFront distribution defaults root object set to your index page if used.
+- CloudFront distribution defaults root object set to your index page.
 
 ---
 
