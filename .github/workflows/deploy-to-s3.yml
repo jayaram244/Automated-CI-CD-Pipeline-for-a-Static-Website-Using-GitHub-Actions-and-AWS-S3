@@ -1,12 +1,13 @@
 name: Deploy Static Website to AWS S3
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types:
+      - closed
 
 jobs:
   deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -21,10 +22,9 @@ jobs:
           aws-region: us-east-1
 
       - name: Sync static files to S3
-        run: |
-          aws s3 sync ./ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete --exclude ".github/*" --exclude "README.md"
+        run: aws s3 sync ./ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete --exclude ".github/*" --exclude "README.md"
 
-      - name: Invalidate CloudFront cache
+      - name: Invalidate CloudFront cache (optional)
         if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*'
