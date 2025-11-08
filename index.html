@@ -1,229 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAFÉE ☕</title>
-  <style>
-    /* Reset and base style */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #fffaf3;
+  color: #333;
+}
 
-    body {
-      background-color: #fffaf3;
-      color: #333;
-    }
+header {
+  background-color: #4b2c20;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
 
-    header {
-      background-color: #4b2c20;
-      color: #fff;
-      padding: 20px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+}
 
-    header h1 {
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-    }
+nav a:hover {
+  color: #f5c26b;
+}
 
-    nav a {
-      color: #fff;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+.hero {
+  background: url('https://images.unsplash.com/photo-1510626176961-4b37d6afc5e3?auto=format&fit=crop&w=1600&q=80') center/cover;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
 
-    nav a:hover {
-      color: #f5c26b;
-    }
+button {
+  background: #f5c26b;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+}
 
-    .hero {
-      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
+button:hover {
+  background: #e4a543;
+}
 
-    .hero h2 {
-      font-size: 3rem;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      border-radius: 12px;
-    }
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
 
-    .section {
-      padding: 60px 80px;
-      text-align: center;
-    }
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+}
 
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #4b2c20;
-    }
+.card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+}
 
-    .menu {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+}
 
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 250px;
-      padding: 20px;
-      transition: transform 0.3s;
-    }
+form input, form textarea {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
 
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .card h3 {
-      margin: 15px 0 5px;
-      color: #4b2c20;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .contact {
-      background-color: #4b2c20;
-      color: white;
-      padding: 50px 20px;
-    }
-
-    .contact h2 {
-      color: #f5c26b;
-    }
-
-    .contact p {
-      margin-top: 15px;
-    }
-
-    footer {
-      background-color: #2c1a12;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-
-    button {
-      background-color: #f5c26b;
-      color: #4b2c20;
-      border: none;
-      padding: 10px 20px;
-      margin-top: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background-color: #e4a543;
-    }
-
-    @media (max-width: 768px) {
-      .menu {
-        flex-direction: column;
-        align-items: center;
-      }
-      .section {
-        padding: 40px 20px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Header Section -->
-  <header>
-    <h1>☕ CAFÉE</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#menu">Menu</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <h2>Welcome to CAFÉE — The Perfect Brew ☕</h2>
-  </section>
-
-  <!-- Menu Section -->
-  <section class="section" id="menu">
-    <h2>Our Menu</h2>
-    <div class="menu">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1510626176961-4b37d6afc5e3?auto=format&fit=crop&w=800&q=80" alt="Espresso">
-        <h3>Espresso</h3>
-        <p>Rich, strong, and bold flavor — perfect start for your day.</p>
-        <button>Order Now</button>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Cappuccino">
-        <h3>Cappuccino</h3>
-        <p>Perfect blend of espresso, steamed milk, and foam.</p>
-        <button>Order Now</button>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Latte">
-        <h3>Latte</h3>
-        <p>Creamy and smooth — coffee with a comforting twist.</p>
-        <button>Order Now</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="section" id="about">
-    <h2>About Us</h2>
-    <p>
-      At <b>CAFÉE</b>, every sip tells a story.  
-      Brewed with passion and served with warmth — we make your day brighter one cup at a time.
-    </p>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>📍 Bachupally, Hyderabad</p>
-    <p>📞 +91 98765 43210</p>
-    <p>📧 hello@cafee.com</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 CAFÉE | Brewed with ❤ by Vande Bharat Bob
-  </footer>
-
-</body>
-</html>
+footer {
+  background-color: #2c1a12;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+}
