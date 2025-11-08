@@ -1,37 +1,112 @@
-const yearEl = document.getElementById('year')
-if (yearEl) yearEl.textContent = new Date().getFullYear()
-
-// Favorites handling
-document.querySelectorAll('.fav-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    btn.classList.toggle('saved')
-    btn.textContent = btn.classList.contains('saved') ? '💖 Saved' : '♡ Save'
-  })
-})
-
-// Scroll to villas
-const discover = document.getElementById('discover')
-if(discover){
-  discover.addEventListener('click',()=>{
-    document.getElementById('villas').scrollIntoView({behavior:'smooth'})
-  })
+:root {
+  --bg1: #ff8fab;
+  --bg2: #a0c4ff;
+  --accent: #ffd166;
+  --text: #222;
+  --white: #fff;
 }
 
-// Contact form (local save simulation)
-const form=document.getElementById('contactForm')
-const response=document.getElementById('response')
-if(form){
-  form.addEventListener('submit',e=>{
-    e.preventDefault()
-    const name=document.getElementById('name').value.trim()
-    const email=document.getElementById('email').value.trim()
-    const msg=document.getElementById('msg').value.trim()
-    if(!name||!email||!msg){
-      response.textContent='⚠️ Please fill all fields.'
-      return
-    }
-    localStorage.setItem('villa-msg',JSON.stringify({name,email,msg,time:new Date().toLocaleString()}))
-    response.textContent='✅ Message saved locally!'
-    form.reset()
-  })
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: var(--text);
+  text-align: center;
+  line-height: 1.6;
+}
+
+header {
+  background: var(--white);
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: var(--bg1);
+  margin-bottom: 0.5rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav a:hover {
+  color: var(--bg1);
+}
+
+.hero {
+  padding: 3rem 1rem;
+  background: linear-gradient(90deg, var(--bg1), var(--bg2));
+  color: var(--white);
+}
+.hero h2 {
+  font-size: 2rem;
+}
+.hero button {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.services {
+  background: var(--white);
+  padding: 2rem 1rem;
+}
+.services h2 {
+  color: var(--bg1);
+  margin-bottom: 1rem;
+}
+.service {
+  background: linear-gradient(120deg, var(--bg1), var(--bg2));
+  color: var(--white);
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 400px;
+}
+
+.contact {
+  background: var(--bg2);
+  color: var(--white);
+  padding: 2rem 1rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 400px;
+  margin: auto;
+}
+input, textarea {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 6px;
+}
+button[type="submit"] {
+  background: var(--accent);
+  color: var(--text);
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem;
+  cursor: pointer;
+}
+
+footer {
+  background: var(--white);
+  padding: 1rem;
+  color: var(--text);
+  font-weight: 500;
 }
