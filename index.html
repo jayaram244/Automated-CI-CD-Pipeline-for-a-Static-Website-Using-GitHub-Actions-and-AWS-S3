@@ -1,75 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AWS Cloud Agency — Demo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniFlix</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <h1 class="brand">☁️ AWS Cloud Agency</h1>
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  <header>
+    <h1 class="logo">🎞️ MiniFlix</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shows">Shows</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <main id="home" class="hero">
-    <div class="wrap hero-inner">
-      <div>
-        <h2>Build • Deploy • Scale</h2>
-        <p>Automated pipelines using GitHub Actions → AWS S3 → CloudFront. Serverless-first, secure, and fast.</p>
-        <p><button id="discover" class="btn">Explore Services</button></p>
-      </div>
-      <div class="badge-row" aria-hidden="true">
-        <div class="badge">🖥️ EC2</div>
-        <div class="badge">💾 S3</div>
-        <div class="badge">⚙️ Lambda</div>
-        <div class="badge">🌍 CloudFront</div>
-      </div>
-    </div>
-  </main>
+  <section id="home" class="hero">
+    <h2>Unlimited Movies, Shows & Fun</h2>
+    <p>Watch anywhere. Cancel anytime.</p>
+    <button id="start">Get Started</button>
+  </section>
 
-  <section id="services" class="wrap services">
-    <h3>Our Services</h3>
-    <div class="cols">
+  <section id="shows" class="shows">
+    <h2>Popular Picks 🍿</h2>
+    <div class="cards">
       <div class="card">
-        <h4>Static Hosting</h4>
-        <p>Host static sites on S3 with CloudFront for fast global delivery.</p>
+        <h3>Stranger Worlds</h3>
+        <p>Adventure • Sci-Fi</p>
       </div>
       <div class="card">
-        <h4>CI/CD</h4>
-        <p>GitHub Actions builds and deploys automatically on push or PR.</p>
+        <h3>Money Game</h3>
+        <p>Thriller • Drama</p>
       </div>
       <div class="card">
-        <h4>Serverless</h4>
-        <p>Lambda for backend tasks, step-functions for orchestration.</p>
+        <h3>Red Moon</h3>
+        <p>Fantasy • Action</p>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="wrap contact">
-    <h3>Contact</h3>
-    <form id="contactForm" class="form" action="#" onsubmit="return false;">
-      <input id="name" name="name" placeholder="Your name" required>
-      <input id="email" name="email" type="email" placeholder="you@example.com" required>
-      <textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea>
-      <div class="form-row">
-        <button id="send" class="btn">Send</button>
-        <button id="clear" class="btn ghost" type="button">Clear</button>
-      </div>
+  <section id="contact" class="contact">
+    <h2>Contact Support</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
     </form>
-    <p id="response" role="status" aria-live="polite" class="response"></p>
+    <p id="response"></p>
   </section>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <small>© <span id="year"></span> AWS Cloud Agency • Demo</small>
-    </div>
+  <footer>
+    <p>© <span id="year"></span> MiniFlix | Inspired by Netflix 🎬</p>
   </footer>
 
   <script src="app.js" defer></script>
