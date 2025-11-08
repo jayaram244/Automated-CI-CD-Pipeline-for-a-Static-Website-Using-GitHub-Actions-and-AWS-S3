@@ -1,41 +1,94 @@
-// Run this with: node app.js
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #fffaf3;
+  color: #333;
+}
 
-const app = express();
-app.use(bodyParser.json());
-app.use(express.static(__dirname)); // serve HTML & CSS
+header {
+  background-color: #4b2c20;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
 
-// Sample menu data
-const menu = [
-  {
-    name: "Espresso",
-    price: 120,
-    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
-  },
-  {
-    name: "Cappuccino",
-    price: 150,
-    image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87"
-  },
-  {
-    name: "Latte",
-    price: 170,
-    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
-  }
-];
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+}
 
-// API Routes
-app.get('/menu', (req, res) => {
-  res.json(menu);
-});
+nav a:hover {
+  color: #f5c26b;
+}
 
-app.post('/contact', (req, res) => {
-  console.log("Contact message:", req.body);
-  res.json({ message: "Thanks for contacting CAFÉE! We'll reply soon ☕" });
-});
+.hero {
+  background: url('https://images.unsplash.com/photo-1510626176961-4b37d6afc5e3?auto=format&fit=crop&w=1600&q=80') center/cover;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
 
-// Start server
-const PORT = 3000;
-app.listen(PORT, () => console.log(🚀 CAFÉE running on http://localhost:${PORT}));
+button {
+  background: #f5c26b;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background: #e4a543;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+}
+
+form input, form textarea {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+footer {
+  background-color: #2c1a12;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+}
