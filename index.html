@@ -1,61 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAFÉE ☕ | The Future of Coffee</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Modern 2025 static site — fast, accessible, mobile-first.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#0f172a">
+  <title>Stellar — Modern Static Site</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header id="navbar">
-    <h1>CAFÉE ☕</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#menu">Menu</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="/">Stellar</a>
+      <nav aria-label="Primary" class="nav">
+        <button id="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list" class="nav-list" hidden>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button id="theme-toggle" aria-pressed="false" title="Toggle theme">🌓</button>
+        <a class="cta" href="#demo">Try</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h2 class="fade-in">Taste the Future of Coffee</h2>
-      <p class="slide-up">Crafted with perfection. Served with technology.</p>
-      <button class="glow-btn" onclick="scrollToSection('menu')">Explore Menu</button>
+  <main id="main" class="container">
+    <section class="hero" id="hero">
+      <div class="hero-left">
+        <h1>Fast. Accessible. Future-ready.</h1>
+        <p>Static site template for 2025 — minimal, performant, and built for modern browsers while remaining accessible and resilient.</p>
+        <p class="meta">
+          <a class="primary-cta" href="#demo">Live Demo</a>
+          <a class="ghost-cta" href="#features">Why this</a>
+        </p>
+      </div>
+      <div class="hero-right" aria-hidden="false">
+        <div class="mockup" id="mockup">
+          <canvas id="wave" width="600" height="360" aria-hidden="true"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="grid">
+      <article>
+        <h2>Performance</h2>
+        <p>Small footprint, critical CSS, and caching headers allow instant loads and great Core Web Vitals.</p>
+      </article>
+      <article>
+        <h2>Accessibility</h2>
+        <p>Keyboard-first navigation, focus styles, semantic HTML and ARIA where needed.</p>
+      </article>
+      <article>
+        <h2>Privacy</h2>
+        <p>No third-party trackers by default — works offline as a basic fallback (app works with JS off).</p>
+      </article>
+    </section>
+
+    <section id="demo" class="demo">
+      <h2>Interactive demo</h2>
+      <p>Type something and your message is stored locally (no server) — shows progressive enhancement.</p>
+      <form id="demo-form" class="form" action="#" method="post" onsubmit="return false;">
+        <label for="name">Your name</label>
+        <input id="name" name="name" placeholder="Jayaram 🐯" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Say hi"></textarea>
+        <div class="form-actions">
+          <button id="save" type="submit">Save locally</button>
+          <button id="clear" type="button">Clear</button>
+        </div>
+      </form>
+      <div id="saved" class="saved" aria-live="polite"></div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>If deployed, point a contact form to a serverless function or email provider. This template keeps privacy first.</p>
+      <p class="muted">Built with only index.html, styles.css, app.js</p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <small>© <span id="year"></span> Stellar — static by design</small>
     </div>
-  </section>
-
-  <!-- Menu Section -->
-  <section id="menu" class="menu-section">
-    <h2 class="slide-in-left">Our Signature Coffees</h2>
-    <div class="menu-grid" id="menuItems"></div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <h2 class="slide-in-right">About CAFÉE</h2>
-    <p class="fade-in">
-      CAFÉE blends art, aroma, and AI. Every cup is brewed with precision —
-      powered by innovation and passion for excellence.
-    </p>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <h2 class="slide-in-left">Contact Us</h2>
-    <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="glow-btn">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    © 2025 CAFÉE | Designed with ⚡ Innovation by Vande Bharat Bob
   </footer>
 
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
