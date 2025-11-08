@@ -2,62 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Villa Agency</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DreamSpace Agency</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <h1 class="logo">🏡 Villa Agency</h1>
+    <h1>🌈 DreamSpace Agency</h1>
     <nav>
-      <a href="#villas">Villas</a>
-      <a href="#about">About</a>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Luxury Villas for Modern Living</h2>
-    <p>Explore premium villas with elegant design and prime locations across India.</p>
-    <button id="discover">Discover Villas</button>
+  <section id="home" class="hero">
+    <h2>We Design Colorful Experiences</h2>
+    <p>Creative digital designs that bring your ideas to life with color and joy.</p>
+    <button id="discover">See Our Work</button>
   </section>
 
-  <main id="villas" class="villa-list">
-    <article class="villa-card">
-      <h3>Sea View Villa</h3>
-      <p>4BHK · Infinity Pool · ₹2.8 Cr</p>
-      <button class="fav-btn">♡ Save</button>
-    </article>
-    <article class="villa-card">
-      <h3>Palm Retreat</h3>
-      <p>5BHK · Garden · ₹3.5 Cr</p>
-      <button class="fav-btn">♡ Save</button>
-    </article>
-    <article class="villa-card">
-      <h3>Hilltop Haven</h3>
-      <p>3BHK · Mountain View · ₹2.2 Cr</p>
-      <button class="fav-btn">♡ Save</button>
-    </article>
-  </main>
-
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>Villa Agency helps you find luxurious and exclusive villas with transparent deals, verified listings, and expert guidance.</p>
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service">
+      <h3>🎨 Brand Design</h3>
+      <p>We create vibrant, modern branding for startups and businesses.</p>
+    </div>
+    <div class="service">
+      <h3>💻 Web Development</h3>
+      <p>Fast, responsive, and colorful websites that stand out.</p>
+    </div>
+    <div class="service">
+      <h3>📱 App UI/UX</h3>
+      <p>Designs that feel smooth, joyful, and easy to use.</p>
+    </div>
   </section>
 
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <form id="contactForm">
       <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <textarea id="msg" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
     </form>
     <p id="response"></p>
   </section>
 
   <footer>
-    <small>© <span id="year"></span> Villa Agency. All rights reserved.</small>
+    <p>© <span id="year"></span> DreamSpace Agency ✨</p>
   </footer>
 
   <script src="app.js" defer></script>
