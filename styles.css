@@ -1,49 +1,133 @@
-:root{
-  --bg:#071029;
-  --panel:rgba(255,255,255,0.05);
-  --accent:#ff9900; /* AWS orange */
-  --blue:#0073bb;
-  --muted:#cbd5e1;
-  --glass:rgba(255,255,255,0.03);
-  --radius:12px;
-  --wrap:1100px;
-  font-synthesis: none;
+:root {
+  --netflix-red: #e50914;
+  --netflix-dark: #141414;
+  --text-light: #f5f5f5;
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg,#071029 0%, #071a2a 60%);
-  color:#fff;
-  -webkit-font-smoothing:antialiased;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.wrap{max-width:var(--wrap);margin:0 auto;padding:1.25rem}
-.site-header{backdrop-filter:blur(6px);position:sticky;top:0;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-bottom:1px solid rgba(255,255,255,0.02)}
-.site-header .wrap{display:flex;align-items:center;justify-content:space-between}
-.brand{color:var(--accent);font-weight:700}
-.nav a{color:var(--muted);margin-left:1rem;text-decoration:none}
-.nav a:hover{color:var(--blue)}
-.hero{padding:3rem 0}
-.hero-inner{display:flex;gap:2rem;align-items:center;justify-content:space-between}
-.hero h2{font-size:clamp(1.4rem,3.5vw,2rem);margin-bottom:.5rem;color:var(--accent)}
-.hero p{color:var(--muted);max-width:48ch}
-.btn{background:var(--accent);border:0;padding:.6rem 1rem;border-radius:10px;color:#071029;font-weight:700;cursor:pointer}
-.badge-row{display:flex;gap:.6rem;flex-wrap:wrap}
-.badge{background:linear-gradient(90deg, rgba(255,153,0,0.12), rgba(0,115,187,0.08));padding:.6rem .8rem;border-radius:999px;color:var(--muted);font-weight:700}
-.services{padding:2rem 0}
-.services h3{text-align:center;color:var(--blue);margin-bottom:1rem}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-.card{background:var(--panel);padding:1rem;border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,0.5)}
-.card h4{margin:0 0 .4rem}
-.contact{padding:2rem 0}
-.form{max-width:640px;margin:0 auto;display:grid;gap:.6rem}
-input,textarea{padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:var(--muted)}
-.form-row{display:flex;gap:.6rem;justify-content:center}
-.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-.response{color:var(--muted);text-align:center;margin-top:.6rem}
-.site-footer{padding:1rem 0;border-top:1px solid rgba(255,255,255,0.02);text-align:center;color:var(--muted);position:relative}
-@media(max-width:800px){
-  .hero-inner{flex-direction:column;align-items:flex-start}
-  .nav{display:none}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--netflix-dark);
+  color: var(--text-light);
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo {
+  color: var(--netflix-red);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  margin: 0 1rem;
+}
+nav a:hover {
+  color: var(--netflix-red);
+}
+
+.hero {
+  padding: 4rem 1rem;
+  background: linear-gradient(180deg, #000, #1a1a1a);
+}
+.hero h2 {
+  color: var(--netflix-red);
+  font-size: 2rem;
+}
+.hero button {
+  background: var(--netflix-red);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.hero button:hover {
+  background: #b20710;
+}
+
+.shows {
+  padding: 2rem 1rem;
+}
+.shows h2 {
+  color: var(--netflix-red);
+  margin-bottom: 1rem;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.card {
+  background: #222;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 200px;
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card h3 {
+  color: var(--text-light);
+}
+.card p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.contact {
+  padding: 2rem 1rem;
+  background: #000;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 350px;
+  margin: auto;
+}
+input, textarea {
+  padding: 0.7rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background: #1a1a1a;
+  color: white;
+}
+button[type="submit"] {
+  background: var(--netflix-red);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 0.7rem;
+  cursor: pointer;
+}
+button[type="submit"]:hover {
+  background: #b20710;
+}
+
+footer {
+  background: #000;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #888;
 }
