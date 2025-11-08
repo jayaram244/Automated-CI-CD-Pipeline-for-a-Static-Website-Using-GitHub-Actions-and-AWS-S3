@@ -1,96 +1,282 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Modern 2025 static site — fast, accessible, mobile-first.">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta name="theme-color" content="#0f172a">
-  <title>Stellar — Modern Static Site</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>CAFÉE — Premium Digital Coffee</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a class="brand" href="/">Stellar</a>
-      <nav aria-label="Primary" class="nav">
-        <button id="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
-        <ul id="nav-list" class="nav-list" hidden>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#demo">Demo</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="actions">
-        <button id="theme-toggle" aria-pressed="false" title="Toggle theme">🌓</button>
-        <a class="cta" href="#demo">Try</a>
-      </div>
-    </div>
+  <header class="nav">
+    <div class="brand">CAFÉE <span class="dot">●</span></div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button id="cartBtn" class="icon-btn">Cart <span id="cartCount">0</span></button>
+    </nav>
   </header>
 
-  <main id="main" class="container">
-    <section class="hero" id="hero">
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
       <div class="hero-left">
-        <h1>Fast. Accessible. Future-ready.</h1>
-        <p>Static site template for 2025 — minimal, performant, and built for modern browsers while remaining accessible and resilient.</p>
-        <p class="meta">
-          <a class="primary-cta" href="#demo">Live Demo</a>
-          <a class="ghost-cta" href="#features">Why this</a>
-        </p>
+        <h1 class="title">Taste the Future — CAFÉE</h1>
+        <p class="lead">Premium single-origin roasts, crafted with precision and served with style.</p>
+        <div class="hero-actions">
+          <button class="cta" onclick="scrollToSection('menu')">Explore Menu</button>
+          <button class="ghost" onclick="openContact()">Contact Us</button>
+        </div>
       </div>
-      <div class="hero-right" aria-hidden="false">
-        <div class="mockup" id="mockup">
-          <canvas id="wave" width="600" height="360" aria-hidden="true"></canvas>
+      <div class="hero-right">
+        <img class="hero-cup" src="https://images.unsplash.com/photo-1510626176961-4b37d6afc5e3?auto=format&fit=crop&w=800&q=80" alt="coffee cup">
+        <div class="floating-card">
+          <div>Barista Special</div>
+          <div class="price">₹ 199</div>
         </div>
       </div>
     </section>
 
-    <section id="features" class="grid">
-      <article>
-        <h2>Performance</h2>
-        <p>Small footprint, critical CSS, and caching headers allow instant loads and great Core Web Vitals.</p>
-      </article>
-      <article>
-        <h2>Accessibility</h2>
-        <p>Keyboard-first navigation, focus styles, semantic HTML and ARIA where needed.</p>
-      </article>
-      <article>
-        <h2>Privacy</h2>
-        <p>No third-party trackers by default — works offline as a basic fallback (app works with JS off).</p>
-      </article>
+    <!-- Menu -->
+    <section id="menu" class="section">
+      <h2 class="section-title">Signature Menu</h2>
+      <div id="menuGrid" class="grid"></div>
     </section>
 
-    <section id="demo" class="demo">
-      <h2>Interactive demo</h2>
-      <p>Type something and your message is stored locally (no server) — shows progressive enhancement.</p>
-      <form id="demo-form" class="form" action="#" method="post" onsubmit="return false;">
-        <label for="name">Your name</label>
-        <input id="name" name="name" placeholder="Jayaram 🐯" required>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" placeholder="Say hi"></textarea>
+    <!-- About -->
+    <section id="about" class="section alt">
+      <h2 class="section-title">About CAFÉE</h2>
+      <p class="text">
+        We blend craftsmanship, technology and aroma. Each cup is roasted, brewed and served with consistent excellence.
+        This demo ships as a single-folder app — perfect for showing a polished prototype.
+      </p>
+      <div class="features">
+        <div class="feature">
+          <strong>Fresh Beans</strong>
+          <p>Single-origin, ethically sourced.</p>
+        </div>
+        <div class="feature">
+          <strong>Smart Brewing</strong>
+          <p>Precision temperature & extraction.</p>
+        </div>
+        <div class="feature">
+          <strong>Fast Delivery</strong>
+          <p>Optimised routes, fresh coffee quick.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <form id="contactForm" class="contact-form">
+        <input name="name" placeholder="Your name" required />
+        <input name="email" placeholder="Email" type="email" required />
+        <textarea name="message" placeholder="Message" required></textarea>
         <div class="form-actions">
-          <button id="save" type="submit">Save locally</button>
-          <button id="clear" type="button">Clear</button>
+          <button type="submit" class="cta">Send</button>
+          <button type="button" class="ghost" onclick="resetContact()">Reset</button>
         </div>
       </form>
-      <div id="saved" class="saved" aria-live="polite"></div>
-    </section>
-
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p>If deployed, point a contact form to a serverless function or email provider. This template keeps privacy first.</p>
-      <p class="muted">Built with only index.html, styles.css, app.js</p>
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <small>© <span id="year"></span> Stellar — static by design</small>
-    </div>
+  <footer class="footer">
+    © 2025 CAFÉE — Built with ❤ by Vande Bharat Bob — <small>Admin: <a href="/admin" target="_blank">/admin</a></small>
   </footer>
 
-  <script src="app.js" defer></script>
+  <!-- Cart Modal -->
+  <div id="cartModal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="close" onclick="closeCart()">✕</button>
+      <h3>Your Cart</h3>
+      <div id="cartList" class="cart-list"></div>
+      <div class="cart-summary">
+        <div>Total: <span id="cartTotal">₹0</span></div>
+        <div>
+          <button class="cta" onclick="checkout()">Checkout</button>
+          <button class="ghost" onclick="clearCart()">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  /* --------------------------
+     Client-side logic (all inline)
+     - load menu from /menu
+     - cart using localStorage
+     - contact form posts to /contact
+     - checkout posts to /order
+     ---------------------------*/
+
+  // Utils
+  const $ = q => document.querySelector(q);
+  const $$ = q => Array.from(document.querySelectorAll(q));
+
+  // Scroll helper
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+  function openContact() { scrollToSection('contact'); }
+  function resetContact() { $('#contactForm').reset(); }
+
+  // MENU
+  async function loadMenu() {
+    try {
+      const res = await fetch('/menu');
+      const items = await res.json();
+      const grid = $('#menuGrid');
+      grid.innerHTML = '';
+      items.forEach((it, idx) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="card-media"><img src="${it.image}" alt="${it.name}"></div>
+          <div class="card-body">
+            <h3>${it.name}</h3>
+            <p class="muted">${it.description || ''}</p>
+            <div class="card-foot">
+              <div class="price">₹${it.price}</div>
+              <button class="add" data-id="${idx}">Add</button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+      // attach add handlers
+      $$('.card .add').forEach(btn => btn.addEventListener('click', e => {
+        const id = Number(e.target.dataset.id);
+        addToCart(id);
+      }));
+    } catch (e) {
+      console.error('menu load failed', e);
+    }
+  }
+
+  // CART (localStorage)
+  const CART_KEY = 'cafee_cart_v1';
+  function getCart() {
+    try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); }
+    catch { return []; }
+  }
+  function saveCart(cart) { localStorage.setItem(CART_KEY, JSON.stringify(cart)); updateCartUI(); }
+  function addToCart(itemId) {
+    fetch('/menu').then(r=>r.json()).then(menu=>{
+      const item = menu[itemId];
+      if(!item) return;
+      const cart = getCart();
+      const existing = cart.find(c=>c.id===itemId);
+      if(existing) existing.qty++;
+      else cart.push({ id:itemId, name:item.name, price:item.price, qty:1 });
+      saveCart(cart);
+      showToast(${item.name} added to cart);
+    });
+  }
+  function updateCartUI() {
+    const cart = getCart();
+    const count = cart.reduce((s,i)=>s+i.qty,0);
+    $('#cartCount').textContent = count;
+    // If cart modal open, update listing
+    if($('#cartModal').getAttribute('aria-hidden') === 'false') renderCart();
+  }
+  function renderCart() {
+    const cart = getCart();
+    const list = $('#cartList');
+    list.innerHTML = '';
+    if(cart.length===0) list.innerHTML = '<p class="muted">Your cart is empty.</p>';
+    else {
+      cart.forEach((c, i) => {
+        const row = document.createElement('div');
+        row.className = 'cart-row';
+        row.innerHTML = `
+          <div class="cart-desc">
+            <div>${c.name}</div>
+            <div class="muted">Qty: ${c.qty}</div>
+          </div>
+          <div class="cart-actions">
+            <div>₹${c.price*c.qty}</div>
+            <div>
+              <button class="mini" data-i="${i}" data-op="minus">-</button>
+              <button class="mini" data-i="${i}" data-op="plus">+</button>
+            </div>
+          </div>
+        `;
+        list.appendChild(row);
+      });
+      // attach plus/minus
+      $$('.mini').forEach(b=>b.addEventListener('click', e=>{
+        const i = Number(e.target.dataset.i);
+        const op = e.target.dataset.op;
+        const cart = getCart();
+        if(op==='plus') cart[i].qty++;
+        else { cart[i].qty--; if(cart[i].qty<=0) cart.splice(i,1); }
+        saveCart(cart);
+      }));
+    }
+    const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+    $('#cartTotal').textContent = '₹' + total;
+  }
+  function clearCart() { localStorage.removeItem(CART_KEY); updateCartUI(); renderCart(); }
+
+  // CART modal
+  $('#cartBtn').addEventListener('click', ()=> {
+    $('#cartModal').setAttribute('aria-hidden','false'); renderCart();
+  });
+  function closeCart(){ $('#cartModal').setAttribute('aria-hidden','true'); }
+  window.addEventListener('click', e => {
+    if(e.target.id === 'cartModal') closeCart();
+  });
+
+  async function checkout() {
+    const cart = getCart();
+    if(!cart.length){ showToast('Cart empty'); return; }
+    const name = prompt('Enter your name to checkout:');
+    if(!name) return;
+    const payload = { customer: name, items: cart, timestamp: Date.now() };
+    try {
+      const res = await fetch('/order', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)
+      });
+      const json = await res.json();
+      if(json.success){
+        showToast('Order placed — ' + json.id);
+        clearCart();
+        closeCart();
+      } else showToast('Checkout failed');
+    } catch(err){ showToast('Network error'); }
+  }
+
+  // CONTACT
+  $('#contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const data = Object.fromEntries(fd.entries());
+    try {
+      const res = await fetch('/contact', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      showToast(json.message || 'Thanks!');
+      e.target.reset();
+    } catch {
+      showToast('Failed to send. Try again.');
+    }
+  });
+
+  // Simple toast
+  function showToast(msg){
+    let t = document.createElement('div'); t.className='toast'; t.textContent=msg;
+    document.body.appendChild(t);
+    setTimeout(()=> t.classList.add('visible'), 10);
+    setTimeout(()=> t.classList.remove('visible'), 3000);
+    setTimeout(()=> t.remove(), 3500);
+  }
+
+  // Init
+  loadMenu();
+  updateCartUI();
+  </script>
 </body>
 </html>
