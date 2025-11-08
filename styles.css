@@ -1,74 +1,142 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background-color: #fffaf3;
-  color: #333;
 }
 
+body {
+  background: #0f0f0f;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Navbar */
 header {
-  background-color: #4b2c20;
-  color: white;
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+header h1 {
+  color: #f5c26b;
+  font-weight: 700;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
+  color: #fff;
   margin: 0 15px;
-  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 nav a:hover {
   color: #f5c26b;
+  text-shadow: 0 0 10px #f5c26b;
 }
 
+/* Hero Section */
 .hero {
-  background: url('https://images.unsplash.com/photo-1510626176961-4b37d6afc5e3?auto=format&fit=crop&w=1600&q=80') center/cover;
-  height: 80vh;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
   text-align: center;
+  flex-direction: column;
+  position: relative;
+  animation: zoomIn 10s infinite alternate ease-in-out;
 }
 
-button {
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.glow-btn {
   background: #f5c26b;
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  color: #222;
+  padding: 12px 24px;
+  border-radius: 50px;
   cursor: pointer;
-  margin-top: 15px;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px #f5c26b;
 }
 
-button:hover {
-  background: #e4a543;
+.glow-btn:hover {
+  background: #fff;
+  box-shadow: 0 0 20px #f5c26b;
+  transform: scale(1.05);
+}
+
+/* Menu */
+.menu-section {
+  padding: 100px 50px;
+  text-align: center;
+  background: #141414;
 }
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
 }
 
 .card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  padding: 15px;
+  background: #1e1e1e;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 25px rgba(245, 194, 107, 0.3);
 }
 
 .card img {
   width: 100%;
-  height: 180px;
-  border-radius: 10px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h3 {
+  color: #f5c26b;
+  margin-top: 15px;
+}
+
+/* About Section */
+.about-section {
+  padding: 100px 50px;
+  text-align: center;
+  background: #0f0f0f;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Contact */
+.contact-section {
+  padding: 100px 50px;
+  text-align: center;
+  background: #141414;
 }
 
 form {
@@ -78,17 +146,78 @@ form {
   margin: 0 auto;
 }
 
-form input, form textarea {
+input, textarea {
   margin: 10px 0;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1e1e1e;
+  color: white;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
 }
 
 footer {
-  background-color: #2c1a12;
-  color: white;
+  background: #0a0a0a;
   text-align: center;
-  padding: 15px;
+  padding: 30px;
+  color: #999;
   font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes zoomIn {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.fade-in {
+  animation: fadeIn 2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 1.5s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideLeft 2s ease forwards;
+  transform: translateX(-50px);
+  opacity: 0;
+}
+
+@keyframes slideLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slideRight 2s ease forwards;
+  transform: translateX(50px);
+  opacity: 0;
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
