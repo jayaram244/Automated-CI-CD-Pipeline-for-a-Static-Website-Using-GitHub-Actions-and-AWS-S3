@@ -1,110 +1,37 @@
-:root {
-  --bg:#0f172a;
-  --fg:#f8fafc;
-  --accent:#38bdf8;
-  --card:#1e293b;
-  --muted:#94a3b8;
+const yearEl = document.getElementById('year')
+if (yearEl) yearEl.textContent = new Date().getFullYear()
+
+// Favorites handling
+document.querySelectorAll('.fav-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    btn.classList.toggle('saved')
+    btn.textContent = btn.classList.contains('saved') ? '💖 Saved' : '♡ Save'
+  })
+})
+
+// Scroll to villas
+const discover = document.getElementById('discover')
+if(discover){
+  discover.addEventListener('click',()=>{
+    document.getElementById('villas').scrollIntoView({behavior:'smooth'})
+  })
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:"Poppins",system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--fg);
-  line-height:1.5;
-}
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:1rem 2rem;
-  background:rgba(15,23,42,0.9);
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-.logo{font-size:1.3rem;font-weight:600}
-nav a{
-  margin:0 1rem;
-  color:var(--muted);
-  text-decoration:none;
-  font-weight:500;
-}
-nav a:hover{color:var(--accent)}
-.hero{
-  text-align:center;
-  padding:4rem 1rem;
-  background:linear-gradient(180deg,var(--card),var(--bg));
-}
-.hero h2{font-size:2rem;margin-bottom:.5rem}
-.hero p{max-width:600px;margin:0 auto 1rem;color:var(--muted)}
-.hero button{
-  background:var(--accent);
-  color:var(--bg);
-  border:0;
-  padding:.6rem 1.2rem;
-  border-radius:8px;
-  font-size:1rem;
-  cursor:pointer;
-}
-.villa-list{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:1.5rem;
-  padding:2rem;
-}
-.villa-card{
-  background:var(--card);
-  border-radius:10px;
-  padding:1rem;
-  text-align:center;
-  box-shadow:0 4px 12px rgba(0,0,0,0.4);
-}
-.villa-card h3{margin-bottom:.3rem}
-.villa-card p{color:var(--muted);margin-bottom:.5rem}
-.fav-btn{
-  background:transparent;
-  color:var(--accent);
-  border:1px solid var(--accent);
-  padding:.4rem .8rem;
-  border-radius:6px;
-  cursor:pointer;
-}
-.about,.contact{
-  padding:2rem;
-  text-align:center;
-  max-width:800px;
-  margin:auto;
-}
-.about p{color:var(--muted)}
-form{
-  display:flex;
-  flex-direction:column;
-  gap:.8rem;
-  margin-top:1rem;
-}
-input,textarea{
-  padding:.6rem;
-  border-radius:6px;
-  border:1px solid #1e293b;
-  background:#0f172a;
-  color:var(--fg);
-}
-button[type=submit]{
-  background:var(--accent);
-  border:0;
-  color:var(--bg);
-  padding:.6rem 1rem;
-  border-radius:6px;
-  cursor:pointer;
-}
-footer{
-  text-align:center;
-  padding:1rem;
-  background:#0b1120;
-  color:var(--muted);
-  margin-top:2rem;
-}
-@media(max-width:600px){
-  nav{display:none}
-  .hero h2{font-size:1.5rem}
+
+// Contact form (local save simulation)
+const form=document.getElementById('contactForm')
+const response=document.getElementById('response')
+if(form){
+  form.addEventListener('submit',e=>{
+    e.preventDefault()
+    const name=document.getElementById('name').value.trim()
+    const email=document.getElementById('email').value.trim()
+    const msg=document.getElementById('msg').value.trim()
+    if(!name||!email||!msg){
+      response.textContent='⚠️ Please fill all fields.'
+      return
+    }
+    localStorage.setItem('villa-msg',JSON.stringify({name,email,msg,time:new Date().toLocaleString()}))
+    response.textContent='✅ Message saved locally!'
+    form.reset()
+  })
 }
