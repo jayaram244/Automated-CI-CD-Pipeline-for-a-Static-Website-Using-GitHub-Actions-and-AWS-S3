@@ -1,13 +1,12 @@
 // Run this with: node app.js
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
-
+const express = require("express");
+const path = require("path");
+const bodyParser = require("body-parser");
 const app = express();
-app.use(bodyParser.json());
-app.use(express.static(__dirname)); // serve HTML & CSS
 
-// Sample menu data
+app.use(bodyParser.json());
+app.use(express.static(__dirname));
+
 const menu = [
   {
     name: "Espresso",
@@ -22,20 +21,17 @@ const menu = [
   {
     name: "Latte",
     price: 170,
-    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+    image: "https://images.unsplash.com/photo-1510626176961-4b37d6afc5e3"
   }
 ];
 
-// API Routes
-app.get('/menu', (req, res) => {
+app.get("/menu", (req, res) => {
   res.json(menu);
 });
 
-app.post('/contact', (req, res) => {
-  console.log("Contact message:", req.body);
-  res.json({ message: "Thanks for contacting CAFÉE! We'll reply soon ☕" });
+app.post("/contact", (req, res) => {
+  console.log("Contact message received:", req.body);
+  res.json({ message: "Your message was received, thank you for reaching CAFÉE ☕" });
 });
 
-// Start server
-const PORT = 3000;
-app.listen(PORT, () => console.log(🚀 CAFÉE running on http://localhost:${PORT}));
+app.listen(3000, () => console.log("⚡ CAFÉE high-tech site running on http://localhost:3000"));
